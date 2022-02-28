@@ -61,7 +61,7 @@ JOIN t1
 --task4
 --Корабли: Найдите названия кораблей, имеющих наибольшее число орудий среди всех кораблей такого же водоизмещения (учесть корабли из таблицы Outcomes).
 
-SELECT ROW_NUMBER() OVER (PARTITION BY displacement ORDER BY displacement DESC, numguns DESC) AS rank_
+SELECT DENSE_RANK() OVER (PARTITION BY displacement ORDER BY displacement DESC, numguns DESC) AS rank_
 	, "name"
 	, numguns
 	, displacement 
